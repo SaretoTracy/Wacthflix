@@ -23,3 +23,4 @@ def movie(movie_id):
     movie_id=1234 
 
     return render_template('movie.html',id = movie_id)
+
