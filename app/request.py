@@ -9,7 +9,7 @@ Movie = movie.Movie
 api_key = app.config['MOVIE_API_KEY']
 
 # Getting the movie base url
-base_url = app.config["MOVIE_API_BASE_URL"]
+base_url = app.config['MOVIE_API_BASE_URL']
 
 #create a get_movies() function that takes in a movie category as an argument.
 def get_movies(category):
