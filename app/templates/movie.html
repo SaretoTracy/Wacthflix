@@ -1,37 +1,27 @@
-<!DOCTYPE html>
-<html>
+ {% import 'macros.html' as macro%} {% extends 'base.html'%}
 
-<head>
-    <meta charset="utf-8"> {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to the best Movie Review website </title>
-    {% endif %} {% import 'macros.html' as macro%} {% extends 'base.html'%}
-</head>
+
 
 
 
 <!-- Content block -->
 {% block content %}
+<div class="container">
 
-<!-- Popular movie -->
-<h3> Popular Movies</h3>
-<ul>
-    {{ macro.displayMovieList(popular)}}
-</ul>
-<!-- Upcoming movie  -->
-<h3> Upcoming Movies </h3>
-<ul>
-    {{ macro.displayMovieList(upcoming)}}
-</ul>
-<!-- Now showing movie -->
-<h3>Now Showing</h3>
-<ul>
-    {{ macro.displayMovieList(now_showing)}}
-</ul>
+    <!-- Poster background -->
+    <div class="row">
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath" style="background: url({{movie.poster}}) no-repeat center center">
+        </div>
+
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 movie-details">
+            <h3>{{ movie.title }}</h3>
+
+            <p class="overview"> {{ movie.overview }}</p>
+            <p class="ratings"> <b> {{ movie.vote_average }}</b> - <i>{{ movie.vote_count}} votes </i> </p>
 
 
-{% endblock%}
+        </div>
+    </div>
 
-
-</html>
+</div>
+{% endblock %}

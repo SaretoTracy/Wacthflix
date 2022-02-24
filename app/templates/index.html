@@ -1,37 +1,22 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html'%} {% import 'macros.html' as macro%}
+<!-- Content block -->
+{% block content %}
 
-<head>
-    <meta charset="utf-8"> {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to the best Movie Review website </title>
-    {% endif %} {% import 'macros.html' as macro%} {% extends 'base.html'%}
-</head>
-
-<body>
-
-    <!-- Content block -->
-    {% block content %}
-
-    <!-- Popular movie -->
-    <h3> Popular Movies</h3>
-    <ul>
-        {{ macro.displayMovieList(popular)}}
-    </ul>
-    <!-- Upcoming movie  -->
-    <h3> Upcoming Movies </h3>
-    <ul>
-        {{ macro.displayMovieList(upcoming)}}
-    </ul>
-    <!-- Now showing movie -->
-    <h3>Now Showing</h3>
-    <ul>
-        {{ macro.displayMovieList(now_showing)}}
-    </ul>
+<!-- Popular movie -->
+<h3> Popular Movies</h3>
+<ul>
+    {{ macro.displayMovieList(popular)}}
+</ul>
+<!-- Upcoming movie  -->
+<h3> Upcoming Movies </h3>
+<ul>
+    {{ macro.displayMovieList(upcoming)}}
+</ul>
+<!-- Now showing movie -->
+<h3>Now Showing</h3>
+<ul>
+    {{ macro.displayMovieList(now_showing)}}
+</ul>
 
 
-    {% endblock%}
-</body>
-
-</html>
+{% endblock%}
