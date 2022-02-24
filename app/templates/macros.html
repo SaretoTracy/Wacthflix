@@ -1,5 +1,4 @@
 <!--macros- allows us to group blocks of our code's logic that will be reused multiple times.-->
-
-% macro displayMovieList(movie_list) %} {% for movie in movie_list %}
+{% macro displayMovieList(movie_list) %} {% for movie in movie_list %}
 <li>{{ movie.title}}</li>
 {% endfor %} {% endmacro %}
