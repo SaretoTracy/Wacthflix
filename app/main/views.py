@@ -1,12 +1,12 @@
 from flask import render_template
 from flask import render_template,request,redirect,url_for
-from app import app
-from .models import review
+from . import main
+from ..models import Review
 from .forms import ReviewForm
-Review = review.Review
-from .request import get_movies, get_movie, search_movie
+
+from ..request import get_movies, get_movie, search_movie
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -29,7 +29,7 @@ def index():
     
 
 
-@app.route('/movie/<int:id>')
+@main.route('/movie/<int_id>')
 def movie(id):
 
     '''
@@ -37,13 +37,12 @@ def movie(id):
     '''
     movie = get_movie(id)
     title = f'{movie.title}'
-    reviews = Review.get_reviews(movie.id)
 
-    return render_template('movie.html',title = title,movie = movie,reviews = reviews)
+    return render_template('movie.html',title = title,movie = movie)
 
 
 #create a search view function that has passes in a dynamic variable. 
-@app.route('/search/<movie_name>')
+@main.route('/search/<movie_name>')
 def search(movie_name):
     '''
     View function to display the search results
@@ -54,7 +53,7 @@ def search(movie_name):
     title = f'search results for {movie_name}'
     return render_template('search.html',movies = searched_movies)
 #create a new dynamic route for our new_review function and pass in the movie id. 
-@app.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
+@main.route('/movie/review/new/<int:id>', methods = ['GET','POST'])
 def new_review(id):
     form = ReviewForm()
     movie = get_movie(id)
