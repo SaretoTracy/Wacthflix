@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
+{% extends 'bootstrap/base.html' %}
 
-<head>
-    <meta charset="utf-8"> {% if title %}
-    <title> {{ title }}</title>
-    {% else %}
-    <title> Welcome to the best Movie Review website </title>
-    {% endif %} {% extends 'bootstrap/base.html'%}
-</head>
-
-<body>
-
-    <!-- Navbar block  -->
-    {% block navbar %} {% include 'navbar.html' %} {% endblock %}
-</body>
-
-</html>
+<!-- Navbar block  -->
+{% block navbar %} {% include 'navbar.html' %} {% endblock %}
