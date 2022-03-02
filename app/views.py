@@ -29,7 +29,7 @@ def index():
     
 
 
-@app.route('/movie/<int_id>')
+@app.route('/movie/<int:id>')
 def movie(id):
 
     '''
@@ -37,8 +37,9 @@ def movie(id):
     '''
     movie = get_movie(id)
     title = f'{movie.title}'
+    reviews = Review.get_reviews(movie.id)
 
-    return render_template('movie.html',title = title,movie = movie)
+    return render_template('movie.html',title = title,movie = movie,reviews = reviews)
 
 
 #create a search view function that has passes in a dynamic variable. 
