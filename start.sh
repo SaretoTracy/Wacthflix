@@ -1,0 +1,5 @@
+ NEWS_API_KEY='e17a22ff7a32447b878c8cd1709f3932'
+
+SECRET_KEY='\xa5\xe0\xa3\xa3J*~\x12\xf7\xd2\xcd\xa00\xee\xec\xfd/\xe8\x9b\x01\xcd\xf4\xbc+'
+
+python3.8 manage.py server
